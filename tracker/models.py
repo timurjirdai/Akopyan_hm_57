@@ -39,12 +39,12 @@ class Issue(models.Model):
     )
 
     types = models.ManyToManyField(
-        Type,
+        Type, 
         verbose_name='Типы'
     )
 
     created_at = models.DateTimeField(
-        auto_now_add=True
+        auto_now_add=True,
     )
 
     updated_at = models.DateTimeField(
