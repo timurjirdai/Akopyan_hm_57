@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Список задач</h1>
+
+{% for issue in issues %}
+
+<div class="card mb-3">
+    <div class="card-body">
+        <h5>{{ issue.summary }}</h5>
+
+        <p>
+            Статус: {{ issue.status }}
+        </p>
+
+        <p>
+            Тип: {{ issue.type }}
+        </p>
+
+        <a href="{% url 'issue_detail' issue.pk %}"
+           class="btn btn-info">
+            Подробнее
+        </a>
+
+    </div>
+</div>
+{% empty %}
+<p>Задач нет</p>
+
+{% endfor %}
+
+{% endblock %}

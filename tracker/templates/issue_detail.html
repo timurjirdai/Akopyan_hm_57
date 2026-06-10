@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ issue.summary }}</h1>
+<p>
+    <strong>Описание:</strong>
+    {{ issue.description }}
+</p>
+
+<p>
+    <strong>Статус:</strong>
+    {{ issue.status }}
+</p>
+
+<p>
+    <strong>Тип:</strong>
+    {{ issue.type }}
+</p>
+
+<p>
+    <strong>Создана:</strong>
+    {{ issue.created_at }}
+</p>
+
+<p>
+    <strong>Обновлена:</strong>
+    {{ issue.updated_at }}
+</p>
+
+<a href="{% url 'issue_edit' issue.pk %}"
+   class="btn btn-warning">
+    Редактировать
+</a>
+
+<button
+    type="button"
+    class="btn btn-danger"
+    data-bs-toggle="modal"
+    data-bs-target="#deleteModal">
+    Удалить
+</button>
+
+<div class="modal fade"
+     id="deleteModal"
+     tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    Подтверждение удаления
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+            </div>
+
+            <div class="modal-body">
+                Вы действительно хотите удалить задачу
+                "{{ issue.summary }}"?
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+                    Отмена
+                </button>
+
+                <form method="post"
+                      action="{% url 'issue_delete' issue.pk %}">
+                    {% csrf_token %}
+
+                    <button
+                        type="submit"
+                        class="btn btn-danger">
+                        Удалить
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
