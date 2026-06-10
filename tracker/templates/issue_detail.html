@@ -13,8 +13,11 @@
 </p>
 
 <p>
-    <strong>Тип:</strong>
-    {{ issue.type }}
+    <strong>Типы:</strong>
+    {% for type in issue.types.all %}
+        {{ type.name }}
+        {% if not forloop.last %}, {% endif %}
+    {% endfor %}
 </p>
 
 <p>

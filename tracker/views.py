@@ -17,9 +17,8 @@ class IssueDetailView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['issue'] = get_object_or_404(
-            Issue,
-            id=self.kwargs['pk']
-        )
+            Issue.objects.prefetch_related('types'),
+            id=self.kwargs['pk'])
 
         return context
 

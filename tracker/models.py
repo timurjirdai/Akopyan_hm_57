@@ -38,11 +38,9 @@ class Issue(models.Model):
         verbose_name='Статус'
     )
 
-    type = models.ForeignKey(
+    types = models.ManyToManyField(
         Type,
-        on_delete=models.PROTECT,
-        related_name='issues',
-        verbose_name='Тип'
+        verbose_name='Типы'
     )
 
     created_at = models.DateTimeField(

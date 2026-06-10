@@ -7,8 +7,9 @@ class IssueForm(forms.ModelForm):
         queryset=Status.objects.all()
     )
 
-    type = forms.ModelChoiceField(
-        queryset=Type.objects.all()
+    types = forms.ModelMultipleChoiceField(
+        queryset=Type.objects.all(),
+        widget=forms.CheckboxSelectMultiple
     )
 
     class Meta:
