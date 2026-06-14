@@ -51,7 +51,6 @@ class IssueEditView(TemplateView):
         
         if form.is_valid():
             form.save()
-            
             return redirect('issue_detail', pk=issue.pk)
         
         return render(request, 'issue_edit.html', 

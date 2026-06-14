@@ -1,4 +1,5 @@
 from django.db import models
+from .validators import (validate_summary_length, validate_no_test_word)
 
 class Status(models.Model):
     name = models.CharField(
@@ -23,8 +24,10 @@ class Type(models.Model):
 class Issue(models.Model):
     summary = models.CharField(
         max_length=255,
-        verbose_name='Краткое описание'
-    )
+        validators=[
+            validate_summary_length,
+            validate_no_test_word
+        ])
 
     description = models.TextField(
         blank=True,

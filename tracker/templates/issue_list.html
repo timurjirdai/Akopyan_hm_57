@@ -19,9 +19,6 @@
             {% for type in issue.types.all %}
                 {{ type.name }}
             {% if not forloop.last %}, {% endif %}
-
-            {% empty %}
-            Типов нет.
             {% endfor %}
         </p>
 
