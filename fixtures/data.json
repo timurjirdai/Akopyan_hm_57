@@ -114,5 +114,276 @@
             2
         ]
     }
+},
+{
+    "model": "tracker.issue",
+    "pk": 17,
+    "fields": {
+        "summary": "Исправить авторизацию",
+        "description": "Исправить",
+        "status": 3,
+        "created_at": "2026-06-14T07:33:12.208Z",
+        "updated_at": "2026-06-14T07:33:12.208Z",
+        "types": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 18,
+    "fields": {
+        "summary": "Починить корзину",
+        "description": "Почистить ее",
+        "status": 2,
+        "created_at": "2026-06-14T07:33:30.073Z",
+        "updated_at": "2026-06-14T07:33:30.073Z",
+        "types": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 19,
+    "fields": {
+        "summary": "Оптимизировать запросы",
+        "description": "Улучшить запросы",
+        "status": 3,
+        "created_at": "2026-06-14T07:33:48.755Z",
+        "updated_at": "2026-06-14T07:33:48.755Z",
+        "types": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 20,
+    "fields": {
+        "summary": "Исправить регистрацию",
+        "description": "Улучшить регистрацию",
+        "status": 2,
+        "created_at": "2026-06-14T07:34:19.815Z",
+        "updated_at": "2026-06-14T07:34:19.815Z",
+        "types": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 21,
+    "fields": {
+        "summary": "Обновить дизайн главной",
+        "description": "Сделать его более карсивым",
+        "status": 1,
+        "created_at": "2026-06-14T07:34:36.877Z",
+        "updated_at": "2026-06-14T07:34:36.877Z",
+        "types": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 22,
+    "fields": {
+        "summary": "Добавить пагинацию",
+        "description": "Добавить для удобства",
+        "status": 2,
+        "created_at": "2026-06-14T07:34:54.965Z",
+        "updated_at": "2026-06-14T07:34:54.965Z",
+        "types": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 23,
+    "fields": {
+        "summary": "Исправить ошибку загрузки фото",
+        "description": "Срочно для лучшей работы",
+        "status": 1,
+        "created_at": "2026-06-14T07:35:21.896Z",
+        "updated_at": "2026-06-14T07:35:21.896Z",
+        "types": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 24,
+    "fields": {
+        "summary": "Настроить логирование",
+        "description": "Для практики",
+        "status": 3,
+        "created_at": "2026-06-14T07:35:38.729Z",
+        "updated_at": "2026-06-14T07:35:38.729Z",
+        "types": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 25,
+    "fields": {
+        "summary": "Реализовать фильтрацию задач",
+        "description": "Для лучшего поиска на странице",
+        "status": 1,
+        "created_at": "2026-06-14T07:36:06.055Z",
+        "updated_at": "2026-06-14T07:36:06.055Z",
+        "types": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 26,
+    "fields": {
+        "summary": "Добавить экспорт данных",
+        "description": "фывфывфыв",
+        "status": 2,
+        "created_at": "2026-06-14T07:36:23.343Z",
+        "updated_at": "2026-06-14T07:36:23.343Z",
+        "types": [
+            2
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 27,
+    "fields": {
+        "summary": "Исправить отображение профиля",
+        "description": "Для пользователя",
+        "status": 3,
+        "created_at": "2026-06-14T07:36:42.422Z",
+        "updated_at": "2026-06-14T07:36:42.422Z",
+        "types": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 28,
+    "fields": {
+        "summary": "Улучшить навигацию",
+        "description": "Улучшение страницы сайта",
+        "status": 1,
+        "created_at": "2026-06-14T07:36:57.676Z",
+        "updated_at": "2026-06-14T07:36:57.676Z",
+        "types": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 29,
+    "fields": {
+        "summary": "Исправить работу формы",
+        "description": "Для работы сайта",
+        "status": 2,
+        "created_at": "2026-06-14T07:37:14.395Z",
+        "updated_at": "2026-06-14T07:37:14.395Z",
+        "types": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 30,
+    "fields": {
+        "summary": "Добавить сортировку",
+        "description": "Для удобства юзеров",
+        "status": 3,
+        "created_at": "2026-06-14T07:37:36.406Z",
+        "updated_at": "2026-06-14T07:37:36.406Z",
+        "types": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 31,
+    "fields": {
+        "summary": "Оптимизировать шаблоны",
+        "description": "Практика",
+        "status": 1,
+        "created_at": "2026-06-14T07:37:51.184Z",
+        "updated_at": "2026-06-14T07:37:51.184Z",
+        "types": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 32,
+    "fields": {
+        "summary": "Исправить мобильную версию",
+        "description": "Для пользователей с телефонами",
+        "status": 2,
+        "created_at": "2026-06-14T07:38:12.032Z",
+        "updated_at": "2026-06-14T07:38:12.032Z",
+        "types": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 33,
+    "fields": {
+        "summary": "Добавить уведомления",
+        "description": "Для осведомления",
+        "status": 3,
+        "created_at": "2026-06-14T07:38:31.016Z",
+        "updated_at": "2026-06-14T07:38:31.016Z",
+        "types": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 34,
+    "fields": {
+        "summary": "Реализовать поиск по статусу",
+        "description": "Практика для jun",
+        "status": 1,
+        "created_at": "2026-06-14T07:38:55.515Z",
+        "updated_at": "2026-06-14T07:38:55.515Z",
+        "types": [
+            1,
+            2
+        ]
+    }
 }
 ]
