@@ -1,6 +1,21 @@
 from django.db import models
 from .validators import (validate_summary_length, validate_no_test_word)
 
+class Project(models.Model):
+    start_date = models.DateField()
+
+    end_date = models.DateField(
+        blank=True,
+        null=True
+    )
+
+    name = models.CharField(max_length=255)
+
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
 class Status(models.Model):
     name = models.CharField(
         max_length=100,
@@ -52,6 +67,12 @@ class Issue(models.Model):
 
     updated_at = models.DateTimeField(
         auto_now=True
+    )
+
+    project = models.ForeignKey(
+        Project,
+        on_delete=models.PROTECT,
+        related_name='issues'
     )
 
     def __str__(self):

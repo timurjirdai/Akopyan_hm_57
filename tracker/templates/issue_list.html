@@ -22,6 +22,10 @@
             {% endfor %}
         </p>
 
+        <p>
+            Проект: {{ issue.project }}
+        </p>
+
         <a href="{% url 'issue_detail' issue.pk %}"
            class="btn btn-info">
             Подробнее
