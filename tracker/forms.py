@@ -6,10 +6,6 @@ class IssueForm(forms.ModelForm):
         queryset=Status.objects.all()
     )
 
-    project = forms.ModelChoiceField(
-        queryset=Project.objects.all()
-    )
-
     types = forms.ModelMultipleChoiceField(
         queryset=Type.objects.all(),
         widget=forms.CheckboxSelectMultiple

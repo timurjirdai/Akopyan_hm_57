@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="mb-4">Задачи проекта</h2>
+
+<a
+    href="{% url 'issue_add' project.pk %}"
+    class="btn btn-success mb-3">
+    Добавить задачу
+</a>
+
+{% for issue in project.issues.all %}
+
+<div class="card mb-3">
+    <div class="card-body">
+
+        <h5 class="card-title">
+            {{ issue.summary }}
+        </h5>
+
+        <p class="card-text">
+            <strong>Статус:</strong> {{ issue.status }}
+        </p>
+
+        <div class="d-flex gap-2">
+            <a
+                href="{% url 'issue_detail' issue.pk %}"
+                class="btn btn-info btn-sm">
+                Подробнее
+            </a>
+        </div>
+
+    </div>
+</div>
+
+{% empty %}
+
+<div class="alert alert-info">
+    В проекте пока нет задач
+</div>
+
+{% endfor %}
+
+{% endblock %}

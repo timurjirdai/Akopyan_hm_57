@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Редактирование проекта</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button class="btn btn-warning">
+        Сохранить
+    </button>
+</form>
+
+{% endblock %}

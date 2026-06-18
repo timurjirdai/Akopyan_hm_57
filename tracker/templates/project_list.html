@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Список проектов</h1>
+
+<form method="get" class="mb-4">
+    <div class="input-group">
+        <input
+            type="text"
+            name="search"
+            class="form-control"
+            placeholder="Поиск проекта">
+
+        <button type="submit" class="btn btn-primary">
+            Найти
+        </button>
+    </div>
+</form>
+
+{% for project in projects %}
+
+<div class="card mb-3">
+    <div class="card-body">
+
+        <h5>{{ project.name }}</h5>
+
+        <p>
+            {{ project.description }}
+        </p>
+
+        <a href="{% url 'project_detail' project.pk %}"
+           class="btn btn-info">
+            Подробнее
+        </a>
+
+        <a href="{% url 'project_edit' project.pk %}"
+           class="btn btn-info">
+            Редактировать
+        </a>
+    </div>
+</div>
+
+{% empty %}
+
+<p>Проекты не найдены</p>
+
+{% endfor %}
+
+{% if is_paginated %}
+
+<div class="mt-3">
+
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}&search={{ request.GET.search }}">
+            Назад
+        </a>
+    {% endif %}
+
+    Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}&search={{ request.GET.search }}">
+            Вперёд
+        </a>
+    {% endif %}
+
+</div>
+
+{% endif %}
+
+{% endblock %}
