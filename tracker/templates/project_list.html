@@ -25,9 +25,7 @@
 
         <h5>{{ project.name }}</h5>
 
-        <p>
-            {{ project.description }}
-        </p>
+        <p>{{ project.description }}</p>
 
         <a href="{% url 'project_detail' project.pk %}"
            class="btn btn-info">
@@ -35,9 +33,66 @@
         </a>
 
         <a href="{% url 'project_edit' project.pk %}"
-           class="btn btn-info">
+           class="btn btn-warning">
             Редактировать
         </a>
+
+        <button
+            type="button"
+            class="btn btn-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteModal{{ project.pk }}">
+            Удалить
+        </button>
+
+    </div>
+</div>
+
+<div class="modal fade"
+     id="deleteModal{{ project.pk }}"
+     tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    Подтверждение удаления
+                </h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+            </div>
+
+            <div class="modal-body">
+                Вы действительно хотите удалить проект
+                "{{ project.name }}"?
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Отмена
+                </button>
+
+                <form method="post"
+                      action="{% url 'project_delete' project.pk %}">
+                    {% csrf_token %}
+
+                    <button type="submit"
+                            class="btn btn-danger">
+                        Удалить
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
     </div>
 </div>
 
