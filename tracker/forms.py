@@ -13,7 +13,7 @@ class IssueForm(forms.ModelForm):
 
     class Meta:
         model = Issue
-        exclude = ['project']
+        exclude = ['project', 'is_deleted']
 
 
 class ProjectForm(forms.ModelForm):

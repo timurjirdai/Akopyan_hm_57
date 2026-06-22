@@ -1,93 +1,57 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import TemplateView, View, ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Issue, Project
 from .forms import IssueForm, ProjectForm
 from django.db.models import Q
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
 
-class IssueListView(TemplateView):
+class IssueListView(ListView):
     template_name = 'issue_list.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['issues'] = Issue.objects.all()
+        context['issues'] = Issue.objects.filter(is_deleted=False)
         return context
     
-class IssueDetailView(TemplateView):
+class IssueDetailView(DetailView):
+    model = Issue
     template_name = 'issue_detail.html'
+    context_object_name = 'issue'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['issue'] = get_object_or_404(
-            Issue.objects.prefetch_related('types'),
-            id=self.kwargs['pk'])
+class IssueCreateView(CreateView):
+    model = Issue
+    form_class = IssueForm
+    template_name = 'issue_create.html'
 
-        return context
+    def form_valid(self, form):
+        project = get_object_or_404(Project, pk=self.kwargs['pk'])
+        form.instance.project = project
+        return super().form_valid(form)
 
-class IssueCreateView(View):
-    def get(self, request, pk):
-        form = IssueForm()
-
-        return render(
-            request,
-            'issue_create.html',
-            {'form': form}
-        )
-
-    def post(self, request, pk):
-        project = get_object_or_404(
-            Project,
-            pk=pk
-        )
-
-        form = IssueForm(request.POST)
-
-        if form.is_valid():
-            issue = form.save(commit=False)
-            issue.project = project
-            issue.save()
-            form.save_m2m()
-
-            return redirect(
-                'project_detail',
-                pk=project.pk
-            )
-
-        return render(
-            request,
-            'issue_create.html',
-            {'form': form}
-        )
+    def get_success_url(self):
+        return reverse('project_detail', kwargs={'pk': self.object.project.pk})
     
-class IssueEditView(TemplateView):
-    def get(self, request, pk):
-        issue = get_object_or_404(Issue, pk=pk)
-        form = IssueForm(instance=issue)
+class IssueEditView(UpdateView):
+    model = Issue
+    form_class = IssueForm
+    template_name = 'issue_edit.html'
 
-        return render(request, 'issue_edit.html', 
-                {'form': form, 
-                'issue': issue})
+    def get_success_url(self):
+        return reverse('issue_detail', kwargs={'pk': self.object.pk})
     
-    def post(self, request, pk):
-        issue = get_object_or_404(Issue, pk=pk)
-        form = IssueForm(request.POST, instance=issue)
-        
-        if form.is_valid():
-            form.save()
-            return redirect('issue_detail', pk=issue.pk)
-        
-        return render(request, 'issue_edit.html', 
-                      {'form': form,
-                       'issue': issue})
-    
-class IssueDeleteView(View):
-    def post(self, request, pk):
-        issue = get_object_or_404(Issue, pk=pk)
-        project_pk = issue.project.pk
-        issue.delete()
-        return redirect('project_detail', pk=project_pk)
-    
+class IssueDeleteView(DeleteView):
+    model = Issue
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.is_deleted = True
+        self.object.save()
+        return redirect(self.get_success_url())
+
+    def get_success_url(self):
+        return reverse('project_detail', kwargs={'pk': self.object.project.pk})
+
 class ProjectListView(ListView):
     model = Project
     template_name = 'project_list.html'
@@ -96,7 +60,6 @@ class ProjectListView(ListView):
 
     def get_queryset(self):
         projects = Project.objects.all()
-
         search = self.request.GET.get('search')
 
         if search:

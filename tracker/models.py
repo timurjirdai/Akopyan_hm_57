@@ -37,6 +37,8 @@ class Type(models.Model):
 
 
 class Issue(models.Model):
+    is_deleted = models.BooleanField(default=False)
+
     summary = models.CharField(
         max_length=255,
         validators=[
