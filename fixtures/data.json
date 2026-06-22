@@ -1,5 +1,45 @@
 [
 {
+    "model": "tracker.project",
+    "pk": 1,
+    "fields": {
+        "start_date": "2026-01-01",
+        "end_date": null,
+        "name": "Тестовый проект",
+        "description": "Создан миграцией"
+    }
+},
+{
+    "model": "tracker.project",
+    "pk": 3,
+    "fields": {
+        "start_date": "2026-01-01",
+        "end_date": null,
+        "name": "asdasd",
+        "description": "йцуйцуйцуйцу"
+    }
+},
+{
+    "model": "tracker.project",
+    "pk": 4,
+    "fields": {
+        "start_date": "2026-01-01",
+        "end_date": null,
+        "name": "qweqwqe",
+        "description": "qweqweqwe"
+    }
+},
+{
+    "model": "tracker.project",
+    "pk": 12,
+    "fields": {
+        "start_date": "2026-01-01",
+        "end_date": "2027-01-01",
+        "name": "Тестовый проект",
+        "description": "фывфывфыв"
+    }
+},
+{
     "model": "tracker.status",
     "pk": 1,
     "fields": {
@@ -43,87 +83,15 @@
 },
 {
     "model": "tracker.issue",
-    "pk": 1,
-    "fields": {
-        "summary": "Исправить кнопку",
-        "description": "Починить кнопку завтра или сегодня",
-        "status": 1,
-        "created_at": "2026-06-09T09:10:42.428Z",
-        "updated_at": "2026-06-10T13:09:43.711Z",
-        "types": [
-            1,
-            2,
-            3
-        ]
-    }
-},
-{
-    "model": "tracker.issue",
-    "pk": 2,
-    "fields": {
-        "summary": "Починить ПК",
-        "description": "Разобрать блок, прочистить и все проверить",
-        "status": 1,
-        "created_at": "2026-06-09T09:11:31.458Z",
-        "updated_at": "2026-06-10T13:09:51.882Z",
-        "types": [
-            2
-        ]
-    }
-},
-{
-    "model": "tracker.issue",
-    "pk": 3,
-    "fields": {
-        "summary": "Улучшить авторизацию",
-        "description": "Улучшить авторизацию для юзеров",
-        "status": 3,
-        "created_at": "2026-06-09T09:12:27.023Z",
-        "updated_at": "2026-06-10T13:15:22.313Z",
-        "types": [
-            2,
-            3
-        ]
-    }
-},
-{
-    "model": "tracker.issue",
-    "pk": 4,
-    "fields": {
-        "summary": "Установить антивирус на ПК",
-        "description": "Проверить все антивирусы",
-        "status": 2,
-        "created_at": "2026-06-09T09:13:10.711Z",
-        "updated_at": "2026-06-10T13:15:29.296Z",
-        "types": [
-            1
-        ]
-    }
-},
-{
-    "model": "tracker.issue",
-    "pk": 5,
-    "fields": {
-        "summary": "Привести рабочее местов порядок",
-        "description": "Убрать полностью рабочее место, почистить стол, убрать лишнее",
-        "status": 1,
-        "created_at": "2026-06-09T09:14:12.775Z",
-        "updated_at": "2026-06-10T13:15:13.955Z",
-        "types": [
-            1,
-            2
-        ]
-    }
-},
-{
-    "model": "tracker.issue",
     "pk": 17,
     "fields": {
+        "is_deleted": false,
         "summary": "Исправить авторизацию",
         "description": "Исправить",
         "status": 3,
         "created_at": "2026-06-14T07:33:12.208Z",
-        "updated_at": "2026-06-14T07:33:12.208Z",
+        "updated_at": "2026-06-17T07:55:30.238Z",
+        "project": 1,
         "types": [
             1,
             2
@@ -134,11 +102,13 @@
     "model": "tracker.issue",
     "pk": 18,
     "fields": {
+        "is_deleted": false,
         "summary": "Починить корзину",
         "description": "Почистить ее",
         "status": 2,
         "created_at": "2026-06-14T07:33:30.073Z",
-        "updated_at": "2026-06-14T07:33:30.073Z",
+        "updated_at": "2026-06-17T07:55:30.239Z",
+        "project": 1,
         "types": [
             2,
             3
@@ -147,28 +117,15 @@
 },
 {
     "model": "tracker.issue",
-    "pk": 19,
-    "fields": {
-        "summary": "Оптимизировать запросы",
-        "description": "Улучшить запросы",
-        "status": 3,
-        "created_at": "2026-06-14T07:33:48.755Z",
-        "updated_at": "2026-06-14T07:33:48.755Z",
-        "types": [
-            1,
-            2
-        ]
-    }
-},
-{
-    "model": "tracker.issue",
     "pk": 20,
     "fields": {
+        "is_deleted": false,
         "summary": "Исправить регистрацию",
         "description": "Улучшить регистрацию",
         "status": 2,
         "created_at": "2026-06-14T07:34:19.815Z",
-        "updated_at": "2026-06-14T07:34:19.815Z",
+        "updated_at": "2026-06-17T07:55:30.239Z",
+        "project": 1,
         "types": [
             1,
             3
@@ -179,11 +136,13 @@
     "model": "tracker.issue",
     "pk": 21,
     "fields": {
+        "is_deleted": false,
         "summary": "Обновить дизайн главной",
         "description": "Сделать его более карсивым",
         "status": 1,
         "created_at": "2026-06-14T07:34:36.877Z",
-        "updated_at": "2026-06-14T07:34:36.877Z",
+        "updated_at": "2026-06-17T07:55:30.239Z",
+        "project": 1,
         "types": [
             2,
             3
@@ -194,11 +153,13 @@
     "model": "tracker.issue",
     "pk": 22,
     "fields": {
+        "is_deleted": false,
         "summary": "Добавить пагинацию",
         "description": "Добавить для удобства",
         "status": 2,
         "created_at": "2026-06-14T07:34:54.965Z",
-        "updated_at": "2026-06-14T07:34:54.965Z",
+        "updated_at": "2026-06-17T07:55:30.239Z",
+        "project": 1,
         "types": [
             1,
             2
@@ -209,11 +170,13 @@
     "model": "tracker.issue",
     "pk": 23,
     "fields": {
+        "is_deleted": false,
         "summary": "Исправить ошибку загрузки фото",
         "description": "Срочно для лучшей работы",
         "status": 1,
         "created_at": "2026-06-14T07:35:21.896Z",
-        "updated_at": "2026-06-14T07:35:21.896Z",
+        "updated_at": "2026-06-17T07:55:30.239Z",
+        "project": 1,
         "types": [
             1,
             2,
@@ -225,11 +188,13 @@
     "model": "tracker.issue",
     "pk": 24,
     "fields": {
+        "is_deleted": false,
         "summary": "Настроить логирование",
         "description": "Для практики",
         "status": 3,
         "created_at": "2026-06-14T07:35:38.729Z",
-        "updated_at": "2026-06-14T07:35:38.729Z",
+        "updated_at": "2026-06-17T07:55:30.239Z",
+        "project": 1,
         "types": [
             1,
             2
@@ -240,11 +205,13 @@
     "model": "tracker.issue",
     "pk": 25,
     "fields": {
+        "is_deleted": false,
         "summary": "Реализовать фильтрацию задач",
         "description": "Для лучшего поиска на странице",
         "status": 1,
         "created_at": "2026-06-14T07:36:06.055Z",
-        "updated_at": "2026-06-14T07:36:06.055Z",
+        "updated_at": "2026-06-17T07:55:30.240Z",
+        "project": 1,
         "types": [
             1,
             3
@@ -255,11 +222,13 @@
     "model": "tracker.issue",
     "pk": 26,
     "fields": {
+        "is_deleted": false,
         "summary": "Добавить экспорт данных",
         "description": "фывфывфыв",
         "status": 2,
         "created_at": "2026-06-14T07:36:23.343Z",
-        "updated_at": "2026-06-14T07:36:23.343Z",
+        "updated_at": "2026-06-17T07:55:30.240Z",
+        "project": 1,
         "types": [
             2
         ]
@@ -269,11 +238,13 @@
     "model": "tracker.issue",
     "pk": 27,
     "fields": {
+        "is_deleted": false,
         "summary": "Исправить отображение профиля",
         "description": "Для пользователя",
         "status": 3,
         "created_at": "2026-06-14T07:36:42.422Z",
-        "updated_at": "2026-06-14T07:36:42.422Z",
+        "updated_at": "2026-06-17T07:55:30.240Z",
+        "project": 1,
         "types": [
             1,
             2
@@ -284,11 +255,13 @@
     "model": "tracker.issue",
     "pk": 28,
     "fields": {
+        "is_deleted": false,
         "summary": "Улучшить навигацию",
         "description": "Улучшение страницы сайта",
         "status": 1,
         "created_at": "2026-06-14T07:36:57.676Z",
-        "updated_at": "2026-06-14T07:36:57.676Z",
+        "updated_at": "2026-06-17T07:55:30.240Z",
+        "project": 1,
         "types": [
             1,
             3
@@ -299,11 +272,13 @@
     "model": "tracker.issue",
     "pk": 29,
     "fields": {
+        "is_deleted": false,
         "summary": "Исправить работу формы",
         "description": "Для работы сайта",
         "status": 2,
         "created_at": "2026-06-14T07:37:14.395Z",
-        "updated_at": "2026-06-14T07:37:14.395Z",
+        "updated_at": "2026-06-17T07:55:30.240Z",
+        "project": 1,
         "types": [
             1,
             2
@@ -314,11 +289,13 @@
     "model": "tracker.issue",
     "pk": 30,
     "fields": {
+        "is_deleted": false,
         "summary": "Добавить сортировку",
         "description": "Для удобства юзеров",
         "status": 3,
         "created_at": "2026-06-14T07:37:36.406Z",
-        "updated_at": "2026-06-14T07:37:36.406Z",
+        "updated_at": "2026-06-17T07:55:30.240Z",
+        "project": 1,
         "types": [
             1,
             2,
@@ -330,11 +307,13 @@
     "model": "tracker.issue",
     "pk": 31,
     "fields": {
+        "is_deleted": false,
         "summary": "Оптимизировать шаблоны",
         "description": "Практика",
         "status": 1,
         "created_at": "2026-06-14T07:37:51.184Z",
-        "updated_at": "2026-06-14T07:37:51.184Z",
+        "updated_at": "2026-06-17T07:55:30.240Z",
+        "project": 1,
         "types": [
             1,
             3
@@ -345,11 +324,13 @@
     "model": "tracker.issue",
     "pk": 32,
     "fields": {
+        "is_deleted": false,
         "summary": "Исправить мобильную версию",
         "description": "Для пользователей с телефонами",
         "status": 2,
         "created_at": "2026-06-14T07:38:12.032Z",
-        "updated_at": "2026-06-14T07:38:12.032Z",
+        "updated_at": "2026-06-17T07:55:30.240Z",
+        "project": 1,
         "types": [
             1,
             2
@@ -360,11 +341,13 @@
     "model": "tracker.issue",
     "pk": 33,
     "fields": {
+        "is_deleted": false,
         "summary": "Добавить уведомления",
         "description": "Для осведомления",
         "status": 3,
         "created_at": "2026-06-14T07:38:31.016Z",
-        "updated_at": "2026-06-14T07:38:31.016Z",
+        "updated_at": "2026-06-17T07:55:30.240Z",
+        "project": 1,
         "types": [
             2,
             3
@@ -373,16 +356,36 @@
 },
 {
     "model": "tracker.issue",
-    "pk": 34,
+    "pk": 35,
     "fields": {
-        "summary": "Реализовать поиск по статусу",
-        "description": "Практика для jun",
+        "is_deleted": false,
+        "summary": "Исправить",
+        "description": "уцйуцйцуййцу",
         "status": 1,
-        "created_at": "2026-06-14T07:38:55.515Z",
-        "updated_at": "2026-06-14T07:38:55.515Z",
+        "created_at": "2026-06-18T09:19:57.484Z",
+        "updated_at": "2026-06-18T11:49:29.620Z",
+        "project": 1,
+        "types": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "tracker.issue",
+    "pk": 37,
+    "fields": {
+        "is_deleted": false,
+        "summary": "Исправить кнопку",
+        "description": "qweqweq",
+        "status": 2,
+        "created_at": "2026-06-18T11:49:02.814Z",
+        "updated_at": "2026-06-18T11:49:02.814Z",
+        "project": 3,
         "types": [
             1,
-            2
+            2,
+            3
         ]
     }
 }
