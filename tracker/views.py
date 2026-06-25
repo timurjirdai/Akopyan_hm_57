@@ -4,6 +4,7 @@ from .models import Issue, Project
 from .forms import IssueForm, ProjectForm
 from django.db.models import Q
 from django.urls import reverse_lazy, reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class IssueListView(ListView):
@@ -19,7 +20,7 @@ class IssueDetailView(DetailView):
     template_name = 'issue_detail.html'
     context_object_name = 'issue'
 
-class IssueCreateView(CreateView):
+class IssueCreateView(LoginRequiredMixin, CreateView):
     model = Issue
     form_class = IssueForm
     template_name = 'issue_create.html'
@@ -32,7 +33,7 @@ class IssueCreateView(CreateView):
     def get_success_url(self):
         return reverse('project_detail', kwargs={'pk': self.object.project.pk})
     
-class IssueEditView(UpdateView):
+class IssueEditView(LoginRequiredMixin, UpdateView):
     model = Issue
     form_class = IssueForm
     template_name = 'issue_edit.html'
@@ -40,7 +41,7 @@ class IssueEditView(UpdateView):
     def get_success_url(self):
         return reverse('issue_detail', kwargs={'pk': self.object.pk})
     
-class IssueDeleteView(DeleteView):
+class IssueDeleteView(LoginRequiredMixin, DeleteView):
     model = Issue
 
     def delete(self, request, *args, **kwargs):
@@ -75,13 +76,13 @@ class ProjectDetailView(DetailView):
     template_name = 'project_detail.html'
     context_object_name = 'project'
     
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
     form_class = ProjectForm
     template_name = 'project_create.html'
     success_url = reverse_lazy('project_list')
     
-class ProjectEditView(UpdateView):
+class ProjectEditView(LoginRequiredMixin, UpdateView):
     model = Project
     form_class = ProjectForm
     template_name = 'project_edit.html'
@@ -92,6 +93,6 @@ class ProjectEditView(UpdateView):
             kwargs={'pk': self.object.pk}
         )
     
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     model = Project
     success_url = reverse_lazy('project_list')

@@ -9,6 +9,27 @@
 <body>
 
 <div class="container mt-4">
+    {% if user.is_authenticated %}
+    <p>
+        Пользователь:
+        {{ user.username }}
+    </p>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %} 
+
+        <button type="submit" class="btn btn-danger mb-3">
+            Выйти
+        </button>
+    </form>
+
+    {% else %}
+
+    <a href="{% url 'login' %}" class="btn btn-info mb-3">
+        Войти
+    </a>
+
+    {% endif %}
+
     <a href="{% url 'project_list' %}" class="btn btn-primary mb-3">
         Все проекты
     </a>
