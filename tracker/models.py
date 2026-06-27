@@ -13,6 +13,9 @@ class Project(models.Model):
 
     description = models.TextField()
 
+    class Meta:
+        ordering = ['id']
+
     def __str__(self):
         return self.name
 

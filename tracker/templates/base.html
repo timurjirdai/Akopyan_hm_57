@@ -24,8 +24,12 @@
 
     {% else %}
 
-    <a href="{% url 'login' %}" class="btn btn-info mb-3">
+    <a href="{% url 'login' %}?next={{ request.GET.next }}" class="btn btn-info mb-3">
         Войти
+    </a>
+
+    <a href="{% url 'register' %}?next={{ request.GET.next }}" class="btn btn-dark mb-3">
+        Регистрация
     </a>
 
     {% endif %}
