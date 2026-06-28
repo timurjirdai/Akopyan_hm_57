@@ -1,5 +1,8 @@
 from django.db import models
 from .validators import (validate_summary_length, validate_no_test_word)
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class Project(models.Model):
     start_date = models.DateField()
@@ -12,6 +15,13 @@ class Project(models.Model):
     name = models.CharField(max_length=255)
 
     description = models.TextField()
+
+    users = models.ManyToManyField(
+        User,
+        related_name='projects',
+        blank=True
+    )
+
 
     class Meta:
         ordering = ['id']
