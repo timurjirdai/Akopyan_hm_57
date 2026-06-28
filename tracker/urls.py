@@ -8,7 +8,8 @@ from .views import (
     ProjectDetailView,
     ProjectCreateView,
     ProjectEditView,
-    ProjectDeleteView
+    ProjectDeleteView,
+    ProjectUsersView
 )
 
 
@@ -22,4 +23,5 @@ urlpatterns = [
     path('projects/<int:pk>/', ProjectDetailView.as_view(), name='project_detail'),
     path('projects/<int:pk>/edit/', ProjectEditView.as_view(), name='project_edit'),
     path('projects/<int:pk>/delete/', ProjectDeleteView.as_view(), name='project_delete'),
+    path('projects/<int:pk>/users/', ProjectUsersView.as_view(), name='project_users'),
 ]

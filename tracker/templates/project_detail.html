@@ -4,8 +4,7 @@
 
 <h2 class="mb-4">Задачи проекта</h2>
 
-<a
-    href="{% url 'issue_add' project.pk %}"
+<a href="{% url 'issue_add' project.pk %}"
     class="btn btn-success mb-3">
     Добавить задачу
 </a>
@@ -19,27 +18,41 @@
             {{ issue.summary }}
         </h5>
 
-        <p class="card-text">
-            <strong>Статус:</strong> {{ issue.status }}
+        <p>
+            <strong>Статус:</strong>
+            {{ issue.status }}
         </p>
 
-        <div class="d-flex gap-2">
-            <a
-                href="{% url 'issue_detail' issue.pk %}"
-                class="btn btn-info btn-sm">
-                Подробнее
-            </a>
-        </div>
-
+        <a
+        href="{% url 'issue_detail' issue.pk %}"
+            class="btn btn-info btn-sm">
+            Подробнее
+        </a>
     </div>
 </div>
 
 {% empty %}
 
-<div class="alert alert-info">
-    В проекте пока нет задач
-</div>
+<div class="alert alert-info">В проекте пока нет задач</div>
 
 {% endfor %}
+
+<hr>
+
+<h3>Участники проекта</h3>
+
+{% for user in project.users.all %}
+<p>{{ user.username }}</p>
+
+{% empty %}
+
+<p>Пользователей нет</p>
+
+{% endfor %}
+
+<a href="{% url 'project_users' project.pk %}"
+    class="btn btn-primary">
+    Управление пользователями
+</a>
 
 {% endblock %}
