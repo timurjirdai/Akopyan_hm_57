@@ -22,6 +22,13 @@ class Project(models.Model):
         blank=True
     )
 
+    owner = models.ForeignKey(
+        User,
+        on_delete=models.PROTECT,
+        related_name='owned_projects',
+        blank=True,
+        null=True
+    )
 
     class Meta:
         ordering = ['id']
